@@ -18,13 +18,16 @@ export default async function handler(req, res) {
         }),
       });
 
-      const responseBody = await response.text();  // Get response as text
+      // Log the raw response text to see if it's an HTML page or error
+      const responseBody = await response.text();  
 
       // Check if the response is a valid JSON
       try {
         const jsonResponse = JSON.parse(responseBody);  // Attempt to parse the response as JSON
         res.status(200).json({ message: 'Token sent successfully!' });
       } catch (jsonError) {
+        // If the response is not valid JSON, log the raw response for debugging
+        console.error('Error from webhook (non-JSON response):', responseBody);
         res.status(500).json({ error: 'Webhook did not return valid JSON', response: responseBody });
       }
     } catch (error) {
